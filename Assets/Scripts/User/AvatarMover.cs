@@ -2,7 +2,7 @@
 
 namespace CDA.User
 {
-    public class BasicFpMover : MonoBehaviour
+    public class AvatarMover : MonoBehaviour
     {
         private CharacterController _characterController;
         private Vector3 _moveDirection;

@@ -6,6 +6,8 @@ namespace CDA.User
     {
         public override bool IsDragging => Input.GetMouseButton(0);
 
+        public override bool Interact => Input.GetMouseButton(1);
+
         public override float MoveForward => Input.GetAxis("Vertical");
 
         public override float MoveRight => Input.GetAxis("Horizontal");

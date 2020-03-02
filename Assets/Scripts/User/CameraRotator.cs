@@ -2,7 +2,7 @@
 
 namespace CDA.User
 {
-    public class BasicFpCamera : MonoBehaviour
+    public class CameraRotator : MonoBehaviour
     {
         [SerializeField] private Transform _body;
         [SerializeField] private Camera _camera;
