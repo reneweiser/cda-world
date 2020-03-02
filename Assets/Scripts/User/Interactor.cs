@@ -6,6 +6,7 @@ namespace CDA.User
     {
         [SerializeField] private InputHandler _input;
         [SerializeField] private Camera _camera;
+        [SerializeField] private AvatarNavigation _navigation;
 
         private void Update()
         {
@@ -17,7 +18,12 @@ namespace CDA.User
                 {
                     Transform objectHit = hit.transform;
 
-                    objectHit.GetComponent<IInteractable>()?.Interact();
+                    var interactable = objectHit.GetComponent<IInteractable>();
+                    if (interactable != null)
+                    {
+                        interactable.Interact();
+                        _navigation.MoveToTarget(objectHit.position);
+                    }
                 }
             }
         }
