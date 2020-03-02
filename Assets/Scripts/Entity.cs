@@ -8,7 +8,7 @@ namespace CDA
 
         public void Interact()
         {
-            _material.color = Color.green;
+            _material.color = Color.yellow;
         }
 
         private void Awake()
