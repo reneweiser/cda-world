@@ -9,7 +9,7 @@ Requirements:
 - [x] The User can click on interactable objects ~~which then will turn green~~. Objects that are not interactable will not be affected.
   - [x] Any object can be set up to be interactable
 - [ ] The Avatar moves to a specific object automatically by clicking on it
-  - [ ] The object will become selected when clicked. Selected objects are yellow.
+  - [ ] The object will become `selected` when clicked. Selected objects are yellow.
   - [ ] The avatar should use the shortest path to reach the selected object.
   - [ ] While the Avatar moves to the selected object, no additional movement input will be processed.
-  - [ ] Once the Avatar reached the selected object, the user is free to move around again.
+  - [ ] Once the Avatar reached the selected object, the camera will look at the object more closely. The object becomes `active` and it's color turns green.
