@@ -1,12 +1,13 @@
-﻿using UnityEngine;
+﻿using CDA.User;
+using UnityEngine;
 
 namespace CDA
 {
-    public class Entity : MonoBehaviour, IInteractable
+    public class Entity : Interactable
     {
         private Material _material;
 
-        public void Interact()
+        public override void Interact()
         {
             _material.color = Color.yellow;
         }
