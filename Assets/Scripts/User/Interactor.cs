@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using CDA.Input;
+using UnityEngine;
 
 namespace CDA.User
 {
@@ -6,23 +7,22 @@ namespace CDA.User
     {
         [SerializeField] private InputHandler _input;
         [SerializeField] private Camera _camera;
-        [SerializeField] private AvatarNavigation _navigation;
+        [SerializeField] private Interaction _interaction;
 
         private void Update()
         {
             if (_input.Interact)
             {
-                Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+                Ray ray = _camera.ScreenPointToRay(_input.CursorPosition);
 
                 if (Physics.Raycast(ray, out RaycastHit hit))
                 {
                     Transform objectHit = hit.transform;
 
-                    var interactable = objectHit.GetComponent<IInteractable>();
+                    var interactable = objectHit.GetComponent<Interactable>();
                     if (interactable != null)
                     {
-                        interactable.Interact();
-                        _navigation.MoveToTarget(objectHit.position);
+                        _interaction.Run(interactable);
                     }
                 }
             }

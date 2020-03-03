@@ -4,6 +4,7 @@ using UnityEngine.AI;
 
 namespace CDA.User
 {
+    [RequireComponent(typeof(NavMeshAgent))]
     public class AvatarNavigation : MonoBehaviour
     {
         private NavMeshAgent _navMeshAgent;
