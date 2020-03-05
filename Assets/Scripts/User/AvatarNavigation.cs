@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,22 +8,20 @@ namespace VWT.User
     [RequireComponent(typeof(NavMeshAgent))]
     public class AvatarNavigation : MonoBehaviour
     {
+        public event Action ReachedTarget = delegate { };
+
         private NavMeshAgent _navMeshAgent;
-        private AvatarMover _mover;
-        private CameraRotator _rotator;
+        private AvatarState _state;
 
         private void Awake()
         {
             _navMeshAgent = GetComponent<NavMeshAgent>();
-            _mover = GetComponent<AvatarMover>();
-            _rotator = GetComponent<CameraRotator>();
+            _state = GetComponent<AvatarState>();
         }
 
         public void MoveToTarget(Vector3 target)
         {
-            _navMeshAgent.isStopped = false;
-            _mover.enabled = false;
-            _rotator.enabled = false;
+            _state.SetAi();
             StartCoroutine(Co_MovingToTarget(target));
         }
 
@@ -30,10 +29,8 @@ namespace VWT.User
         {
             _navMeshAgent.SetDestination(target);
             yield return new WaitUntil(() => !_navMeshAgent.pathPending && _navMeshAgent.remainingDistance < 0.1f);
-            Debug.Log("Reached Target");
-            _navMeshAgent.isStopped = true;
-            _mover.enabled = true;
-            _rotator.enabled = true;
+            _state.SetManual();
+            ReachedTarget.Invoke();
         }
     }
 }
