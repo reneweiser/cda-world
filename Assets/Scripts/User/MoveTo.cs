@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CDA.User
+namespace VWT.User
 {
     [RequireComponent(typeof(AvatarNavigation))]
     public class MoveTo : Interaction

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CDA.User
+namespace VWT.User
 {
     public abstract class Interactable : MonoBehaviour
     {

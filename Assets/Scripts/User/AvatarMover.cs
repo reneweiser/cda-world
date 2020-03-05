@@ -1,7 +1,7 @@
-﻿using CDA.Input;
+﻿using VWT.Input;
 using UnityEngine;
 
-namespace CDA.User
+namespace VWT.User
 {
     public class AvatarMover : MonoBehaviour
     {

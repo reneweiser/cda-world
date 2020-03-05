@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace CDA.User
+namespace VWT.User
 {
     [RequireComponent(typeof(NavMeshAgent))]
     public class AvatarNavigation : MonoBehaviour

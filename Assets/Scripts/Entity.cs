@@ -1,7 +1,7 @@
-﻿using CDA.User;
+﻿using VWT.User;
 using UnityEngine;
 
-namespace CDA
+namespace VWT
 {
     public class Entity : Interactable
     {

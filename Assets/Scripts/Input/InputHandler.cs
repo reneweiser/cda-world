@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CDA.Input
+namespace VWT.Input
 {
     public abstract class InputHandler : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CDA.Input
+namespace VWT.Input
 {
     public class KeyboardMouseInput : InputHandler
     {
