@@ -8,6 +8,7 @@ namespace VWT.User
         [SerializeField] private InputHandler _input;
         [SerializeField] private Camera _camera;
         [SerializeField] private Interaction _interaction;
+        [SerializeField] private Interaction _lookInteraction;
 
         private void Update()
         {
@@ -22,10 +23,17 @@ namespace VWT.User
                     var interactable = objectHit.GetComponent<Interactable>();
                     if (interactable != null)
                     {
-                        _interaction.Run(interactable);
+                        Test(interactable);
                     }
                 }
             }
+        }
+
+        private async void Test(Interactable i)
+        {
+            await _interaction.Run(i);
+            await _lookInteraction.Run(i);
+            Debug.Log("target reached");
         }
     }
 }
